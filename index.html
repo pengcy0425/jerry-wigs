@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>男士假髮 Jerry | 專業男士髮型解決方案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B6914;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --dark2: #1A1A1A;
+    --gray: #888888;
+    --light-gray: #CCCCCC;
+    --white: #F8F5F0;
+    --cream: #F2EDE4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 24px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; letter-spacing: 0.3em;
+    color: var(--gold); text-decoration: none;
+  }
+
+  .nav-logo span {
+    display: block; font-size: 10px; letter-spacing: 0.5em;
+    color: var(--light-gray); font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300; margin-top: 2px;
+  }
+
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    color: var(--light-gray); text-decoration: none;
+    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    height: 100vh; position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 50%, rgba(201,169,110,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.05) 0%, transparent 50%),
+      var(--black);
+  }
+
+  /* Gold vertical line decorations */
+  .hero-line {
+    position: absolute;
+    width: 1px; background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.4;
+    animation: lineReveal 1.5s ease forwards;
+  }
+  .hero-line-1 { height: 200px; left: 55%; top: 15%; animation-delay: 0.8s; opacity: 0; }
+  .hero-line-2 { height: 120px; right: 15%; bottom: 20%; animation-delay: 1.2s; opacity: 0; }
+
+  @keyframes lineReveal {
+    from { opacity: 0; transform: scaleY(0); }
+    to { opacity: 0.4; transform: scaleY(1); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 60px; max-width: 700px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.5em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 28px;
+    opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 90px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white);
+    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic; color: var(--gold);
+  }
+
+  .hero-sub {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px; line-height: 2; color: var(--gray);
+    margin-top: 28px; max-width: 400px;
+    opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 48px; display: flex; gap: 24px; align-items: center;
+    opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+
+  .btn-primary {
+    padding: 14px 40px;
+    border: 1px solid var(--gold); color: var(--gold);
+    background: transparent; font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; cursor: pointer; text-decoration: none;
+    transition: all 0.3s; display: inline-block;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--black); }
+
+  .btn-text {
+    font-size: 11px; letter-spacing: 0.2em; color: var(--gray);
+    text-decoration: none; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .btn-text:hover { color: var(--gold); }
+
+  /* Big decorative number */
+  .hero-number {
+    position: absolute; right: 60px; bottom: 15%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px; font-weight: 300; line-height: 1;
+    color: transparent; -webkit-text-stroke: 1px rgba(201,169,110,0.12);
+    pointer-events: none; user-select: none;
+    opacity: 0; animation: fadeIn 1.5s ease 1.2s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    width: 60px; height: 1px; background: var(--gold);
+    margin: 0 auto 24px;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 120px 60px; }
+
+  .section-label {
+    font-size: 10px; letter-spacing: 0.6em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px); font-weight: 300;
+    line-height: 1.2;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--dark);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 100px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative; height: 500px;
+  }
+
+  .about-frame {
+    position: absolute; inset: 0;
+    border: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .about-frame-inner {
+    position: absolute; inset: 20px;
+    border: 1px solid rgba(201,169,110,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .about-icon {
+    font-size: 80px; opacity: 0.15;
+  }
+
+  /* Decorative corner marks */
+  .corner {
+    position: absolute; width: 20px; height: 20px;
+    border-color: var(--gold); border-style: solid; opacity: 0.6;
+  }
+  .corner-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .corner-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+  .corner-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+  .corner-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+    margin-top: 50px;
+  }
+
+  .stat-item { border-left: 1px solid rgba(201,169,110,0.3); padding-left: 20px; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: var(--gray); letter-spacing: 0.1em; margin-top: 6px; }
+
+  .about-text { font-family: 'Noto Serif TC', serif; font-size: 14px; line-height: 2.2; color: var(--gray); margin-top: 28px; }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--black); }
+
+  .products-header { text-align: center; margin-bottom: 70px; }
+
+  .products-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+
+  .product-card {
+    position: relative; background: var(--dark2);
+    padding: 50px 40px; cursor: pointer;
+    transition: all 0.4s;
+    overflow: hidden;
+  }
+
+  .product-card::before {
+    content: ''; position: absolute; inset: 0;
+    border: 1px solid transparent;
+    transition: border-color 0.4s;
+  }
+
+  .product-card:hover::before { border-color: var(--gold); }
+  .product-card:hover { background: #141414; }
+  .product-card:hover .product-arrow { transform: translateX(6px); color: var(--gold); }
+
+  .product-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px; font-weight: 300;
+    color: rgba(201,169,110,0.08); line-height: 1;
+    margin-bottom: 30px;
+  }
+
+  .product-icon { font-size: 28px; margin-bottom: 20px; }
+  .product-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px; font-weight: 500; margin-bottom: 12px;
+  }
+  .product-desc { font-size: 13px; color: var(--gray); line-height: 1.8; }
+  .product-arrow {
+    display: inline-block; margin-top: 24px;
+    font-size: 18px; color: var(--gray);
+    transition: all 0.3s;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--dark);
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+  }
+
+  .services-list { margin-top: 60px; }
+
+  .service-item {
+    padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    transition: all 0.3s; cursor: default;
+  }
+  .service-item:hover .service-name { color: var(--gold); }
+
+  .service-name {
+    font-family: 'Noto Serif TC', serif; font-size: 16px;
+    transition: color 0.3s; flex: 1;
+  }
+  .service-detail { font-size: 12px; color: var(--gray); flex: 1; padding: 0 20px; line-height: 1.7; }
+  .service-tag {
+    font-size: 10px; letter-spacing: 0.2em; color: var(--gold);
+    border: 1px solid rgba(201,169,110,0.3);
+    padding: 4px 12px; white-space: nowrap;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--black); text-align: center; }
+
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 70px;
+  }
+
+  .testimonial-card {
+    background: var(--dark2); padding: 40px 36px;
+    border: 1px solid rgba(255,255,255,0.04);
+    text-align: left; position: relative;
+    transition: border-color 0.3s;
+  }
+  .testimonial-card:hover { border-color: rgba(201,169,110,0.25); }
+
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px; line-height: 0.5;
+    color: var(--gold); opacity: 0.3;
+    margin-bottom: 20px; display: block;
+  }
+
+  .testimonial-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px; line-height: 2; color: var(--light-gray);
+  }
+
+  .testimonial-author {
+    margin-top: 28px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--black); font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .author-name { font-size: 13px; font-weight: 500; }
+  .author-meta { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+  .stars { color: var(--gold); font-size: 13px; margin-bottom: 16px; letter-spacing: 2px; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--dark);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info { }
+
+  .contact-block { margin-top: 50px; }
+
+  .contact-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    margin-bottom: 36px;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border: 1px solid rgba(201,169,110,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .contact-label { font-size: 10px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .contact-value { font-family: 'Noto Serif TC', serif; font-size: 15px; line-height: 1.8; color: var(--light-gray); }
+
+  /* Map placeholder */
+  .map-placeholder {
+    height: 400px; background: var(--dark2);
+    border: 1px solid rgba(201,169,110,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 16px; color: var(--gray);
+    font-size: 13px;
+  }
+
+  .map-placeholder-icon { font-size: 36px; opacity: 0.4; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 50px 60px;
+    border-top: 1px solid rgba(201,169,110,0.12);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--gold); letter-spacing: 0.3em;
+  }
+
+  .footer-copy { font-size: 11px; color: var(--gray); letter-spacing: 0.1em; }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gray); font-style: italic; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    #about, #services, #contact { grid-template-columns: 1fr; gap: 50px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .hero-content { padding: 0 24px; }
+    .hero-number { display: none; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    Jerry
+    <span>男士假髮專門店</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#products">產品</a></li>
+    <li><a href="#services">服務</a></li>
+    <li><a href="#testimonials">評價</a></li>
+    <li><a href="#contact">聯絡我們</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line hero-line-1"></div>
+  <div class="hero-line hero-line-2"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">男士假髮專門店 · 高端訂製</p>
+    <h1 class="hero-title">
+      重拾自信<br>
+      從<em>Jerry</em>開始
+    </h1>
+    <p class="hero-sub">
+      專業男士假髮訂製，以精湛工藝打造最自然的髮型解決方案，讓您重現風采，展現最佳狀態。
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">預約諮詢</a>
+      <a href="#products" class="btn-text">探索產品 →</a>
+    </div>
+  </div>
+
+  <div class="hero-number">J</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-frame">
+      <span class="corner corner-tl"></span>
+      <span class="corner corner-tr"></span>
+      <span class="corner corner-bl"></span>
+      <span class="corner corner-br"></span>
+      <div class="about-frame-inner">
+        <div style="text-align:center; padding: 40px;">
+          <div style="font-family:'Cormorant Garamond',serif; font-size:100px; color:var(--gold); opacity:0.25; line-height:1;">J</div>
+          <p style="font-size:11px; letter-spacing:0.4em; color:var(--gray); text-transform:uppercase; margin-top:10px;">Est. 2018</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p class="section-label">關於我們</p>
+    <h2 class="section-title">
+      用心打造<br>每一頂專屬於你的作品
+    </h2>
+    <p class="about-text">
+      男士假髮Jerry由資深髮型師創立，深耕男性髮型美學逾十年。我們深信，一頂合適的假髮不只是外表的改變，更是信心的重建。從量身訂製到日常護理，我們以最高規格的服務陪伴每一位客戶。
+    </p>
+
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">年專業經驗</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">滿意客戶</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">客戶回頭率</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">髮型款式</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header reveal">
+    <p class="section-label">產品系列</p>
+    <div class="gold-divider"></div>
+    <h2 class="section-title">精選假髮系列</h2>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-num">01</div>
+      <div class="product-icon">💎</div>
+      <div class="product-name">真人髮絲系列</div>
+      <p class="product-desc">採用100%真人髮絲，觸感自然真實，可染色、燙髮，完全仿真效果，為追求極致品質者首選。</p>
+      <span class="product-arrow">→</span>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-num">02</div>
+      <div class="product-icon">✨</div>
+      <div class="product-name">仿生纖維系列</div>
+      <p class="product-desc">頂級仿生髮絲，輕盈透氣，造型持久定型，不受天氣影響，適合日常配戴的理想選擇。</p>
+      <span class="product-arrow">→</span>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-num">03</div>
+      <div class="product-icon">👑</div>
+      <div class="product-name">訂製髮片</div>
+      <p class="product-desc">針對局部稀疏或髮際線問題設計，自然無痕融合，讓您不動聲色地補足每一處不足。</p>
+      <span class="product-arrow">→</span>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-num">04</div>
+      <div class="product-icon">🎯</div>
+      <div class="product-name">蕾絲底網系列</div>
+      <p class="product-desc">超薄蕾絲底座設計，與頭皮完美貼合，透氣舒適，達到最自然的髮際線效果。</p>
+      <span class="product-arrow">→</span>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-num">05</div>
+      <div class="product-icon">⚡</div>
+      <div class="product-name">運動防脫系列</div>
+      <p class="product-desc">特殊固定技術，防水防汗，即使運動激烈也穩固服貼，專為活躍男性設計。</p>
+      <span class="product-arrow">→</span>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-num">06</div>
+      <div class="product-icon">🌟</div>
+      <div class="product-name">全頂訂製系列</div>
+      <p class="product-desc">由專業師傅一對一量頭訂製，從弧度、髮量到髮色，完全依照您的需求打造專屬之作。</p>
+      <span class="product-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <p class="section-label">服務項目</p>
+    <h2 class="section-title">
+      全方位<br>專業服務
+    </h2>
+    <p class="about-text">
+      從初次諮詢到長期護理，我們提供一站式男士假髮服務，讓您每一步都有專人陪伴。
+    </p>
+  </div>
+
+  <div class="services-list reveal">
+    <div class="service-item">
+      <div class="service-name">免費諮詢評估</div>
+      <div class="service-detail">由專業顧問為您分析頭型、膚色及生活習慣，提供最適合的方案建議。</div>
+      <div class="service-tag">免費</div>
+    </div>
+    <div class="service-item">
+      <div class="service-name">量身訂製服務</div>
+      <div class="service-detail">一對一精準量頭，從0到1打造您的專屬假髮，工期約2至3週。</div>
+      <div class="service-tag">訂製</div>
+    </div>
+    <div class="service-item">
+      <div class="service-name">專業剪型造型</div>
+      <div class="service-detail">配合您的臉型與喜好，由造型師進行專業修剪，完美融合您的原生髮。</div>
+      <div class="service-tag">造型</div>
+    </div>
+    <div class="service-item">
+      <div class="service-name">定期護理保養</div>
+      <div class="service-detail">假髮清洗、重新造型及損傷修護，建議每4至6週進行一次專業護理。</div>
+      <div class="service-tag">護理</div>
+    </div>
+    <div class="service-item">
+      <div class="service-name">固定更換服務</div>
+      <div class="service-detail">專業黏合技術，確保假髮穩固貼合，定期更換膠帶或膠水，維持最佳狀態。</div>
+      <div class="service-tag">維護</div>
+    </div>
+    <div class="service-item">
+      <div class="service-name">急件快速服務</div>
+      <div class="service-detail">緊急情況下的快速處理，最快當日完成修復或更換服務。</div>
+      <div class="service-tag">急件</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <p class="section-label">客戶評價</p>
+    <div class="gold-divider"></div>
+    <h2 class="section-title">他們的真實回饋</h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <span class="quote-mark">"</span>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">配戴了Jerry的假髮出席重要場合，同事都以為我是剛剪了新髮型，完全看不出來！自然程度遠超我的預期。</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">陳</div>
+        <div>
+          <div class="author-name">陳先生</div>
+          <div class="author-meta">業務主管 · 配戴2年</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <span class="quote-mark">"</span>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">從初次諮詢到成品，Jerry團隊非常專業耐心。他們幫我挑選的款式完全符合我的臉型，整個人年輕了至少5歲。</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">林</div>
+        <div>
+          <div class="author-name">林先生</div>
+          <div class="author-meta">設計師 · 配戴1年半</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <span class="quote-mark">"</span>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">我選了運動防脫系列，每天健身流汗完全沒有問題，服貼又舒適。護理服務也很到位，強烈推薦給所有男生。</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">王</div>
+        <div>
+          <div class="author-name">王先生</div>
+          <div class="author-meta">健身教練 · 配戴8個月</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <p class="section-label">聯絡我們</p>
+    <h2 class="section-title">
+      立即預約<br>免費諮詢
+    </h2>
+
+    <div class="contact-block">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">店鋪地址</div>
+          <div class="contact-value">台北市信義區忠孝東路五段<br>XXX號X樓</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">預約電話</div>
+          <div class="contact-value">02-XXXX-XXXX<br>或 LINE ID：@jerrywigs</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">營業時間</div>
+          <div class="contact-value">週二至週六 10:00 — 19:00<br>週日、一 公休</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="tel:02XXXXXXXX" class="btn-primary">立即致電預約</a>
+  </div>
+
+  <div class="reveal">
+    <div class="map-placeholder">
+      <div class="map-placeholder-icon">🗺</div>
+      <p style="letter-spacing:0.1em;">地圖嵌入區域</p>
+      <p style="font-size:11px; opacity:0.6;">可嵌入 Google Maps 顯示店鋪位置</p>
+    </div>
+    <div style="margin-top:24px; padding:24px; border:1px solid rgba(201,169,110,0.15); background:var(--dark2);">
+      <p style="font-size:11px; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:12px;">溫馨提示</p>
+      <p style="font-size:13px; color:var(--gray); line-height:1.9; font-family:'Noto Serif TC',serif;">
+        首次到訪建議提前預約，確保有充裕時間為您進行完整評估與諮詢。歡迎攜帶參考圖片，讓我們更精準地了解您的需求。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">JERRY</div>
+  <div class="footer-tagline">Redefine Your Confidence</div>
+  <div class="footer-copy">© 2025 男士假髮 Jerry. All Rights Reserved.</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav transparency on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(10,10,10,0.95)';
+      nav.style.backdropFilter = 'blur(10px)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.9), transparent)';
+      nav.style.backdropFilter = 'blur(2px)';
+    }
+  });
+</script>
+</body>
+</html>
